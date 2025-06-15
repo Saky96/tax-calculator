@@ -1,7 +1,7 @@
 package main
 
 import (
-	"tax-calculator/prices"
+	"github.com/Saky96/tax-calculator/prices"
 )
 
 //type taxPricesMap

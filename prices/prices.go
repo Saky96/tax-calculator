@@ -2,7 +2,7 @@ package prices
 
 import (
 	"fmt"
-	"tax-calculator/utils"
+	"github.com/Saky96/tax-calculator/utils"
 )
 
 type TaxIncludedPriceJob struct {

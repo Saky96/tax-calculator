@@ -58,8 +58,8 @@ func (job *TaxIncludedPriceJob) Process() {
 	job.LoadData()
 	result := make(map[string]string)
 	for _, price := range job.InputPrices {
-		taxCalculatedPices := fmt.Sprintf("%.2f", price*(1+job.TaxRate))
-		result[fmt.Sprintf("%.2f", price)] = taxCalculatedPices
+		taxCalculatedPrices := fmt.Sprintf("%.2f", price*(1+job.TaxRate))
+		result[fmt.Sprintf("%.2f", price)] = taxCalculatedPrices
 	}
 	fmt.Println(result)
 }

@@ -29,7 +29,7 @@ func (fm FileManager) ReadFile() ([]string, error) {
 	}
 
 	defer func(file *os.File) {
-		err := file.Close()
+		err := file.Close() // Close the file when the function returns
 		if err != nil {
 			fmt.Println(err)
 			// Handle the error if needed, but we can't return it here since we're in a deferred function
@@ -67,7 +67,7 @@ func (fm FileManager) WriteFile(data any) error {
 	time.Sleep(2 * time.Second) // Simulate some delay for demonstration purposes
 
 	defer func(file *os.File) {
-		err := file.Close()
+		err := file.Close() // Close the file when the function returns
 		if err != nil {
 			fmt.Println(err)
 			// Handle the error if needed, but we can't return it here since we're in a deferred function

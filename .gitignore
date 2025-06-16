@@ -29,7 +29,7 @@
 Thumbs.db
 
 # Results and generated data
-results/*.json
+
 
 # Logs
 *.log

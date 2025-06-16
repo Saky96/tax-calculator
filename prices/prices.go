@@ -8,10 +8,10 @@ import (
 type MapOfStringAndString map[string]string
 
 type TaxIncludedPriceJob struct {
-	TaxRate           float64
-	InputPrices       []float64
-	TaxIncludedPrices MapOfStringAndString
-	IOManager         utils.FileManager
+	TaxRate           float64              `json:"tax_rate"`
+	InputPrices       []float64            `json:"input_prices"`
+	TaxIncludedPrices MapOfStringAndString `json:"taxed_prices"`
+	IOManager         utils.FileManager    `json:"-"`
 }
 
 func (job *TaxIncludedPriceJob) LoadData() {

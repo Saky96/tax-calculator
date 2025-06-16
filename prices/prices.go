@@ -29,10 +29,10 @@ func (job *TaxIncludedPriceJob) LoadData() error {
 	return nil
 }
 
-func (job *TaxIncludedPriceJob) Process() error {
+func (job *TaxIncludedPriceJob) Process(doneChannel chan bool) {
 	err := job.LoadData()
 	if err != nil {
-		return err
+		//return err
 	}
 	result := make(MapOfStringAndString)
 	for _, price := range job.InputPrices {
@@ -45,7 +45,8 @@ func (job *TaxIncludedPriceJob) Process() error {
 	job.TaxIncludedPrices = result
 
 	//err := job.IOManager.WriteFile(job, fmt.Sprintf("results/result_%.0f.json", job.TaxRate*100))
-	return job.IOManager.WriteFile(job)
+	job.IOManager.WriteFile(job)
+	doneChannel <- true // Signal that the job is done
 }
 
 func NewTaxIncludedPriceJob(taxRate float64, fm utils.FileManager) *TaxIncludedPriceJob {

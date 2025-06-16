@@ -8,8 +8,20 @@ import (
 	"os"
 )
 
-func FileManager(fileName string) ([]string, error) {
-	file, err := os.Open(fileName)
+type FileManager struct {
+	InputSource  string
+	OutputSource string
+}
+
+func NewFileManager(inputSource, outputSource string) FileManager {
+	return FileManager{
+		InputSource:  inputSource,
+		OutputSource: outputSource,
+	}
+}
+
+func (fm FileManager) ReadFile() ([]string, error) {
+	file, err := os.Open(fm.InputSource)
 	if err != nil {
 		fmt.Println(err)
 		return nil, errors.New("error opening file")
@@ -36,8 +48,8 @@ func FileManager(fileName string) ([]string, error) {
 	return lines, nil
 }
 
-func WriteJSON(data any, path string) error {
-	file, err := os.Create(path)
+func (fm FileManager) WriteFile(data any) error {
+	file, err := os.Create(fm.OutputSource)
 	if err != nil {
 		fmt.Println(err)
 		return errors.New("error creating file")

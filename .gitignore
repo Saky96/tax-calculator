@@ -9,7 +9,6 @@
 # Output of build tools
 /build/
 /bin/
-/results
 
 # Go workspace file
 *.code-workspace

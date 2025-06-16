@@ -1,0 +1,36 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of build tools
+/build/
+/bin/
+
+# Go workspace file
+*.code-workspace
+
+# Dependency directories (remove the comment below if you use Go modules)
+/vendor/
+
+# Go module files
+/go.sum
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Results and generated data
+
+
+# Logs
+*.log
+
